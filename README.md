@@ -1,12 +1,12 @@
-# fucekbuatlo
+# fucekbot
 It is a Twitter BOT for sending automated tweets anonymously with a "fucek" trigger on every tweet
 
-### Prerequisites
+## Prerequisites
 - Twitter developer App and its corresponding consumer key/secret and access token key/secret
 - MongoDB
-- Docker (optional)
+- Docker *(optional)*
 
-### Usage
+## Usage
 **Install dependencies**
 ```bash
 $ pip install -r requirements.txt
@@ -16,5 +16,5 @@ $ pip install -r requirements.txt
 $ python app.py
 ```
 
-### LICENSE
+## LICENSE
 MIT
