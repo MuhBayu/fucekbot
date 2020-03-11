@@ -1,4 +1,4 @@
-# fucekbot
+# 🤖 fucekbot
 It is a Twitter BOT for sending automated tweets anonymously with a "fucek" trigger on every tweet
 
 ## Prerequisites
