@@ -1,5 +1,6 @@
 # 🤖 fucekbot
-It is a Twitter BOT for sending automated tweets anonymously with a "fucek" trigger on every tweet
+It is a Twitter BOT for sending automated tweets anonymously with a "fucek" trigger on every tweet.
+Anyone can send tweets via direct messages with the trigger keyword "fucek" at the beginning of a sentence
 
 ## Prerequisites
 - Twitter developer App and its corresponding consumer key/secret and access token key/secret
