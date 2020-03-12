@@ -46,6 +46,11 @@ def app():
 		api.destroy_direct_message(dm.id)
 
 if __name__ == "__main__":
+	pid = str(os.getpid())
+	pidfile = "worker.pid"
+	f = open(pidfile, "w")
+	f.write(pid)
+	f.close()
 	auth = tweepy.OAuthHandler(os.getenv('TWIT_CONSUMER_TOKEN'), os.getenv('TWIT_CONSUMER_SECRET'))
 	auth.secure = True
 	auth.set_access_token(os.getenv('TWIT_ACCESS_TOKEN'), os.getenv('TWIT_ACCESS_TOKEN_SECRET'))
@@ -62,4 +67,6 @@ if __name__ == "__main__":
 	except KeyboardInterrupt:
 		print("Stopped.")
 	finally:
+		if os.path.isfile(pidfile):
+			os.unlink(pidfile)
 		print('Done.')
