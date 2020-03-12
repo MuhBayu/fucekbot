@@ -28,7 +28,7 @@ def app():
 		if check_double_tweet:
 			api.send_direct_message(recipient_id=sender_id, text="Anda udah pernah ngirim ini!! Jangan ngirim lagi")
 		else:
-			if text[0:5].lower() == 'fucek':
+			if text[0:6].lower() == 'fucek ':
 				update = api.update_status(status=text)
 				print("------------------------------------")
 				print(f"| Text: {text}")
