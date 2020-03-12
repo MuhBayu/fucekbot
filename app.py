@@ -16,10 +16,11 @@ def app():
 		sender_id = dm.message_create['sender_id']
 		message_data = dm.message_create['message_data']
 		text = message_data['text']
-		find_tco_url = re.findall('http[s]?://t.co/(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', text)
-		if find_tco_url:
-			text = [text.replace(w, "") for w in find_tco_url]
-			text = re.sub("\s\s+", " ", text[0])
+		if "attachment" in message_data:
+			filter_uri = re.findall('http[s]?://t.co/(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', text)
+			if filter_uri:
+				text = [text.replace(w, "") for w in filter_uri]
+				text = re.sub("\s\s+", " ", text[0])
 
 		check_double_tweet = tweet_collection.find_one({
 			"sender_id": sender_id,
