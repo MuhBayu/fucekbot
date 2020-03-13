@@ -10,12 +10,18 @@ from util.Mongo import tweet_collection
 
 def app():
 	dms = api.list_direct_messages()
-	for i,dm in enumerate(dms):
-		if i > 4:
-			break
+	i = 0
+	for dm in dms:
 		sender_id = dm.message_create['sender_id']
 		message_data = dm.message_create['message_data']
 		text = message_data['text']
+		if sender_id == str(api.me().id):
+			continue
+		else:
+			i += 1
+		if i > 4:
+			break
+
 		if "attachment" in message_data:
 			filter_uri = re.findall('http[s]?://t.co/(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', text)
 			if filter_uri:
